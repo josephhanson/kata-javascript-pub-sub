@@ -1,0 +1,19 @@
+{
+  "name": "javascript-test-scaffold",
+  "version": "0.0.1",
+  "description": "JavaScript Test Scaffold",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/josephhanson/javascript-test-scaffold.git"
+  },
+  "author": "Joe Hanson <joebuilds@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "*",
+    "karma-jasmine": "*",
+    "karma-phantomjs-launcher": "^1.0.4"
+  }
+}
