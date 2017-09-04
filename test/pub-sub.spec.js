@@ -60,6 +60,7 @@ describe('Pub Sub Tests', function () {
       ps.off('main', subscription);
     }).toThrow(new Error('you must provide a channel, topic, and subscription'));
   });
+
   it('should have 1 registered subscriber', function () {
     var sub = ps.on('main', 'item.changed', function () {});
 
@@ -169,4 +170,3 @@ describe('Pub Sub Tests', function () {
     expect(data.hasData).toBeTruthy();
   });
 });
-// ;^)
