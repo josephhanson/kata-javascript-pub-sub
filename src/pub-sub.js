@@ -39,11 +39,12 @@ var PubSub = (function() {
 
   PubSub.prototype.count = function() {
     var count = 0;
-    for(var channel in this._subscribers) {
-      if (this._subscribers.hasOwnProperty(channel)) {
-        count += this._subscribers[channel].length;
-      }
+    var channels = this.channels();
+
+    for (var i = 0; i < channels.length; i++) {
+      count += channels[i].count;
     }
+
     return count;
   };
 
