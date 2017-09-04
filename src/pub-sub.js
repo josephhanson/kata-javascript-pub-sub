@@ -22,6 +22,11 @@ var PubSub = (function() {
   };
 
   PubSub.prototype.off = function(channel, topic, subscription) {
+    if (channel === undefined || typeof channel !== 'string' ||
+      topic === undefined || typeof topic !== 'string' ||
+      subscription === undefined || typeof subscription !== 'object'){
+      throw new Error('you must provide a channel, topic, and subscription');
+    }
     if (this._subscribers[channel]) {
       var topics = this._subscribers[channel];
       for (var i = 0; i<topics.length; i++) {
@@ -53,6 +58,10 @@ var PubSub = (function() {
   };
 
   PubSub.prototype.publish = function(channel, topic, data) {
+    if (channel === undefined || typeof channel !== 'string' || topic === undefined || typeof topic !== 'string') {
+      throw new Error('you must provide a channel and a topic');
+    }
+
     if (this._subscribers[channel]) {
       var topics = this._subscribers[channel];
 
