@@ -41,7 +41,7 @@ var PubSub = (function() {
     var count = 0;
     for(var prop in this._subscribers) {
       if (this._subscribers.hasOwnProperty(prop)) {
-        count+= this._subscribers[prop].length;
+        count += this._subscribers[prop].length;
       }
     }
     return count;
