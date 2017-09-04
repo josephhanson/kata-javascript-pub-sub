@@ -161,7 +161,6 @@ describe('Pub Sub Tests', function () {
   it('should receive a callback with data', function () {
     var data = null;
 
-    var ps = new PubSub();
     ps.on('main', 'item.added', function (response) {
       data = response;
     });
