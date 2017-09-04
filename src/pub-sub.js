@@ -29,7 +29,7 @@ var PubSub = (function() {
     }
     if (this._subscribers[channel]) {
       var topics = this._subscribers[channel];
-      for (var i = 0; i<topics.length; i++) {
+      for (var i = 0; i < topics.length; i++) {
         if (topic === topics[i].topic && subscription === topics[i].subscriber) {
           topics.splice(i, 1);
         }
@@ -39,9 +39,9 @@ var PubSub = (function() {
 
   PubSub.prototype.count = function() {
     var count = 0;
-    for(var prop in this._subscribers) {
-      if (this._subscribers.hasOwnProperty(prop)) {
-        count += this._subscribers[prop].length;
+    for(var channel in this._subscribers) {
+      if (this._subscribers.hasOwnProperty(channel)) {
+        count += this._subscribers[channel].length;
       }
     }
     return count;
@@ -49,9 +49,9 @@ var PubSub = (function() {
 
   PubSub.prototype.channels = function() {
     var channels = [];
-    for(var prop in this._subscribers) {
-      if (this._subscribers.hasOwnProperty(prop)) {
-        channels.push({channel: prop, count: this._subscribers[prop].length});
+    for(var channel in this._subscribers) {
+      if (this._subscribers.hasOwnProperty(channel)) {
+        channels.push({channel: channel, count: this._subscribers[channel].length});
       }
     }
     return channels;
