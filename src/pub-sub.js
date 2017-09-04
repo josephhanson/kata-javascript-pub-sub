@@ -5,7 +5,7 @@ var PubSub = (function() {
     this._subscribers = {};
   }
 
-  PubSub.prototype.subscribe = function(channel, topic, callback) {
+  PubSub.prototype.on = function(channel, topic, callback) {
     if (channel === undefined || channel === '') throw new Error('you must provide a channel name');
     if (topic === undefined || topic === '') throw new Error('you must provide an topic name');
     if (callback === undefined || typeof callback !== 'function') throw new Error('you must provide a subscriber callback function');
@@ -21,7 +21,7 @@ var PubSub = (function() {
     return subscriber;
   };
 
-  PubSub.prototype.unsubscribe = function(channel, topic, subscription) {
+  PubSub.prototype.off = function(channel, topic, subscription) {
     if (this._subscribers[channel]) {
       var topics = this._subscribers[channel];
       for (var i = 0; i<topics.length; i++) {
@@ -52,7 +52,7 @@ var PubSub = (function() {
     return channels;
   };
 
-  PubSub.prototype.notify = function(channel, topic, data) {
+  PubSub.prototype.publish = function(channel, topic, data) {
     if (this._subscribers[channel]) {
       var topics = this._subscribers[channel];
 
