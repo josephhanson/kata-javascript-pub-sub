@@ -169,3 +169,4 @@ describe('Pub Sub Tests', function () {
     expect(data.hasData).toBeTruthy();
   });
 });
+// ;^)
