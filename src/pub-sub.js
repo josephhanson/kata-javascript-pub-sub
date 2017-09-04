@@ -37,27 +37,6 @@ var PubSub = (function() {
     }
   };
 
-  PubSub.prototype.count = function() {
-    var count = 0;
-    var channels = this.channels();
-
-    for (var i = 0; i < channels.length; i++) {
-      count += channels[i].count;
-    }
-
-    return count;
-  };
-
-  PubSub.prototype.channels = function() {
-    var channels = [];
-    for(var channel in this._subscribers) {
-      if (this._subscribers.hasOwnProperty(channel)) {
-        channels.push({channel: channel, count: this._subscribers[channel].length});
-      }
-    }
-    return channels;
-  };
-
   PubSub.prototype.publish = function(channel, topic, data) {
     if (channel === undefined || typeof channel !== 'string' ||
       topic === undefined || typeof topic !== 'string') {
@@ -77,6 +56,27 @@ var PubSub = (function() {
         }
       }
     }
+  };
+
+  PubSub.prototype.count = function() {
+    var count = 0;
+    var channels = this.channels();
+
+    for (var i = 0; i < channels.length; i++) {
+      count += channels[i].count;
+    }
+
+    return count;
+  };
+
+  PubSub.prototype.channels = function() {
+    var channels = [];
+    for(var channel in this._subscribers) {
+      if (this._subscribers.hasOwnProperty(channel)) {
+        channels.push({channel: channel, count: this._subscribers[channel].length});
+      }
+    }
+    return channels;
   };
 
   return PubSub;

@@ -23,7 +23,7 @@ describe('Pub Sub Tests', function () {
 
   it('should error when you don\'t provide a subscriber callback function', function () {
     expect(function () {
-      var s = ps.on('main', 'item.changed');
+      ps.on('main', 'item.changed');
     }).toThrow(new Error('you must provide a subscriber callback function'));
   });
 
@@ -62,7 +62,7 @@ describe('Pub Sub Tests', function () {
   });
 
   it('should have 1 registered subscriber', function () {
-    var sub = ps.on('main', 'item.changed', function () {});
+    ps.on('main', 'item.changed', function () {});
 
     expect(ps.count()).toBe(1);
   });
@@ -84,10 +84,7 @@ describe('Pub Sub Tests', function () {
 
   it('should receive a publish topic', function () {
     var obj = {
-      called: false,
-      cb: function () {
-        this.called = true;
-      }
+      called: false
     };
 
     ps.on('main', 'item.changed', function () {
@@ -105,7 +102,7 @@ describe('Pub Sub Tests', function () {
   });
 
   it('should unregister a subscription', function () {
-    var s1 = ps.on('main', 'item.added', function () {});
+    ps.on('main', 'item.added', function () {});
     var s2 = ps.on('main', 'item.changed', function () {});
 
     ps.off('main', 'item.changed', s2);
@@ -114,9 +111,9 @@ describe('Pub Sub Tests', function () {
   });
 
   it('should output the current channel list and subscriber count', function() {
-    var s1 = ps.on('main', 'item.added', function () {});
-    var s2 = ps.on('main', 'item.deleted', function () {});
-    var s3 = ps.on('other', 'item.added', function () {});
+    ps.on('main', 'item.added', function () {});
+    ps.on('main', 'item.deleted', function () {});
+    ps.on('other', 'item.added', function () {});
 
     var channels = ps.channels();
 
