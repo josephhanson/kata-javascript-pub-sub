@@ -66,7 +66,7 @@ var PubSub = (function() {
     if (this._subscribers[channel]) {
       var topics = this._subscribers[channel];
 
-      for (var i = 0; i<topics.length; i++) {
+      for (var i = 0; i < topics.length; i++) {
         if(topic === topics[i].topic) {
           try {
             topics[i].callback(data);
