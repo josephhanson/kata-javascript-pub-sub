@@ -1,11 +1,11 @@
 {
-  "name": "javascript-test-scaffold",
+  "name": "kata-javascript-pub-sub",
   "version": "0.0.1",
-  "description": "JavaScript Test Scaffold",
+  "description": "JavaScript Pub Sub Library",
   "main": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/josephhanson/javascript-test-scaffold.git"
+    "url": "git://github.com/josephhanson/kata-javascript-pub-sub.git"
   },
   "author": "Joe Hanson <joebuilds@gmail.com>",
   "license": "MIT",
